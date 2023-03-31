@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TodoListController;
 // use App\Http\Controllers\Auth\RegisterController;
 
 
@@ -19,12 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', function () {
-    return view('home');
-});
 
+Route::get('/todo', [TodoListController::class,'index'])->name('index');
+Route::post('/todo', [TodoListController::class,'store'])->name('store');
+Route::delete('/todo/{todolist:id}', [TodoListController::class,'destroy'])->name('destroy');
 
-// Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
 
 
