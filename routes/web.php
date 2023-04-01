@@ -21,7 +21,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/todo', [TodoListController::class,'index'])->name('index');
+
+
+Route::get('/home', [TodoListController::class,'index'])->name('home');
 Route::post('/todo', [TodoListController::class,'store'])->name('store');
 Route::delete('/todo/{todolist:id}', [TodoListController::class,'destroy'])->name('destroy');
 
