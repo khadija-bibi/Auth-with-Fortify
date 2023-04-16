@@ -24,7 +24,8 @@ class TodoListController extends Controller
         TodoList::create(
             [
                 'title' => $request->title,
-                'user_id' => auth()->id()
+                'user_id' => auth()->id(),
+                // 'is_completed'=>,
             ]
         );
         return redirect('/home');
@@ -32,7 +33,15 @@ class TodoListController extends Controller
 
     public function destroy(TodoList $todolist)
     {
+        
         $todolist->delete();
         return redirect()->back();
     }
+    public function iscompleted(TodoList $todolist,Request $request){
+        Todolist ::find($todolist)->update($request->all());
+        return redirect()->back();
+        
+
+    }
+    
 }

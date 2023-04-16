@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('todo_lists', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->boolean('is_completed')->nullable();
             $table->foreignId('user_id')->contrained('users');
             $table->timestamps();
         });

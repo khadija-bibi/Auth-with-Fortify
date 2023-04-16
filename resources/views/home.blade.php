@@ -63,9 +63,24 @@
                       @method('delete') 
                       <button type="submit px-5" ><i class="fas fa-trash color  text-red-500"></i></button>
                     </div>
+                    <div >
+                      
+                       
+                     
+                     
+                    
+
                   </div>
                  
                 </form>
+                
+                <form method="POST" action="{{url('/todo/iscompleted/'.$todolist->id)}}" >
+                  @csrf
+                 <input type="checkbox" name="iscompleted" value="iscompleted"{{$todolist->iscompleted?'checked':''}} >
+                
+                  
+                </form>
+                
               </li>
           @endforeach
           

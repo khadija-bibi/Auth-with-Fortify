@@ -26,7 +26,9 @@ Route::get('/', function () {
 Route::get('/home', [TodoListController::class,'index'])->name('home');
 Route::post('/todo', [TodoListController::class,'store'])->name('store');
 Route::delete('/todo/{todolist:id}', [TodoListController::class,'destroy'])->name('destroy');
+Route::post('/todo/iscompleted/{todolist:id}',[TodoListController::class,'iscompleted']);
 
+// Route::put('/todo-list/{id}/status', [TodoListController::class,'updateStatus'])->name('updateStatus');
 
 
 
