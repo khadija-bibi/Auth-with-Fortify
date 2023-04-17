@@ -74,12 +74,26 @@
                  
                 </form>
                 
-                <form method="POST" action="{{url('/todo/iscompleted/'.$todolist->id)}}" >
-                  @csrf
-                 <input type="checkbox" name="iscompleted" value="iscompleted"{{$todolist->iscompleted?'checked':''}} >
+                
+
+                  @if ($todolist->is_completed==true)
+                  <form method="POST" action="{{url('/todo/notcompleted/'.$todolist->id)}}" >
+                    @csrf 
+                  <button type="submit" class=" bg-green-400 px-2 py-1  rounded-md">
+                    Finished
+                   </button>
+                  </form>
+                  @else
+                  <form method="POST" action="{{url('/todo/iscompleted/'.$todolist->id)}}" >
+                    @csrf 
+                  <button type="submit" class=" bg-red-400 px-2 py-1  rounded-md">
+                    Unfinished
+                   </button>
+                  </form>   
+                  @endif
                 
                   
-                </form>
+                
                 
               </li>
           @endforeach

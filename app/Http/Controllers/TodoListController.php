@@ -37,9 +37,21 @@ class TodoListController extends Controller
         $todolist->delete();
         return redirect()->back();
     }
-    public function iscompleted(TodoList $todolist,Request $request){
-        Todolist ::find($todolist)->update($request->all());
+    public function iscompleted(TodoList $todolist){
+        $todolist->update([
+            'is_completed'=>true
+        ]);
         return redirect()->back();
+        
+        
+
+    }
+    public function notcompleted(TodoList $todolist){
+        $todolist->update([
+            'is_completed'=>false
+        ]);
+        return redirect()->back();
+        
         
 
     }
