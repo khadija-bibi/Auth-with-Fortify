@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Facade;
+use Illuminate\Container\Container;
+
+
 
 return [
 
@@ -181,7 +184,10 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        // Maatwebsite\Excel\ExcelServiceProvider::class,
+        // Illuminate\Foundation\Application::share,
+        // Illuminate\Container\Container::singleton,
+       
+        
         /*
          * Package Service Providers...
          */
@@ -197,6 +203,7 @@ return [
         App\Providers\FortifyServiceProvider::class
     ],
 
+    Maatwebsite\Excel\ExcelServiceProvider::class,
     /*
     |--------------------------------------------------------------------------
     | Class Aliases
@@ -209,6 +216,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
